@@ -2,13 +2,16 @@
   "name": "pushpa",
   "version": "1.0.0",
   "description": "Pushpa save the world",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node server.js"
   },
-  "author": "",
+  "author": "mohana vamsi",
   "license": "ISC",
   "dependencies": {
-    "axios": "^1.6.7"
+    "axios": "^1.6.7",
+    "express": "^4.18.3",
+    "nodemon": "^3.1.0"
   }
 }
