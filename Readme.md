@@ -15,4 +15,4 @@
 <li></li>
 </ul>
 
-**Hey here is the deploy link to  Pushpa🔥🔥🔥:** https://s60-pushpa-1.onrender.com/ping
+**Hey here is the deploy link to  Pushpa🔥🔥🔥:** <a href='https://s60-pushpa-1.onrender.com'>Pushpa🔥</a>
