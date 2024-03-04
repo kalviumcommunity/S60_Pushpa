@@ -14,3 +14,5 @@
  <li>Type of People: The user can choose to see a particular category. </li>
 <li></li>
 </ul>
+
+**Hey here is the deploy link to  Pushpa🔥🔥🔥:** https://s60-pushpa-1.onrender.com/ping
