@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
-const port = 5050;
+const port = process.env.PUBLIC_PORT;
+
 app.get("/",(req,res)=>{
     res.send("hey go to ping")
     res.redirect(req.baseUrl+"/ping")
