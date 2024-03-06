@@ -3,6 +3,7 @@ const app = express();
 const port = 5050;
 app.get("/",(req,res)=>{
     res.send("hey go to ping")
+    res.redirect(req.baseUrl+"/ping")
 })
 app.get("/ping",(req,res)=>{
   res.send("pong")
@@ -13,3 +14,4 @@ app.listen(port, () => {
 
 
 module.exports = app;
+3
