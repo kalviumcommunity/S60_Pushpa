@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const {connectDB,isConnected}=require("./db")
-const routes=require("./Routes/route")
+const routes=require("./route")
 require("dotenv").config()
 const port = 5000;
 connectDB(process.env.DB_URI)
