@@ -1,6 +1,6 @@
 const express=require("express")
 const app=express()
-const model=require("../model")
+const model=require("./model")
 app.use(express.json())
 app.get("/data",async(req,res)=>{
     const data=await model.find({})
