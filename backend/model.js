@@ -2,11 +2,11 @@ const mongoose=require("mongoose")
 const schema=mongoose.Schema({
     image:String,
     Name:String,
-    Age:Number,
-    ToxicRate:Number,
+    Age:String,
     Place:String,
-    Descripsion:String,
-    Precasion:String
+    Description:String,
+    Catogary:String
 })
+
 const model=mongoose.model("pushpa",schema)
 module.exports=model;
