@@ -12,7 +12,10 @@ const signvalid=Joi.object({
     email:Joi.string().email(),
     password:Joi.string().required()
 })
-app.use(cores("*"))
+app.use(cores({
+    origin: "*",
+    credentials: true,
+  }))
 const loginvalid=Joi.object({
     email:Joi.string().email(),
     password:Joi.string().required()
