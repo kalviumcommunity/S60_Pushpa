@@ -80,10 +80,7 @@ function Home(){
             <option value="insta aliens">Insta aliens</option>
             <option value="flatearthers">flatearthers</option>
         </select>
-        </div>
-            )
-        }
-        {/* <div className=" flex flex-wrap justify-around">
+        <div className=" flex flex-wrap justify-around">
             {!load ? data.map((i,j)=>(
                 <div key={j} className="profile flex justify-evenly  bg-black-600 border-white border-2  p-4  rounded-3xl  shadow-white shadow-md m-4" onClick={()=>openDialog(i)}>
         <div  className=" flex content-center items-center photo m-1">
@@ -94,6 +91,7 @@ function Home(){
             <p className=" font-mono text-xl p-2">Age:{i.Age || "♾️"}</p>
             <p>{i.Place}</p>
             <p className="line-clamp-1 p">{i.Description}</p>
+            {/* <div className="scale"><div className="toxic"></div></div>*/}
             
      </div>
      </div>
@@ -126,6 +124,7 @@ function Home(){
          </div>
        )}
         </div>
-            </div> */}
-
+        </div>
+    )
+}
 export default Home;
