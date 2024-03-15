@@ -26,10 +26,7 @@ const data=Joi.object({
 })
 app.use(express.json())
 app.use(cookie_parser())
-app.use(cores({
-    origin: '*',
-    credentials: true 
-  }))
+
 app.get("/data",async(req,res)=>{
     const data=await model.find({})
     res.send(data)
