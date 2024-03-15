@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* #root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  background-image: url('./assets/push.jpg');
+  width: 100%;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.scale{
+  width: 100%;
+  background-color: bisque;
+}
+.toxic{
+  width: 50%;
+} */
+/* .card{
+  width: 15em;
+  text-wrap:wrap;
+  background: #2cb5a0;
+  width: 30%;
+  padding:20px;
+  border: 4px solid #7cdacc;
+  box-shadow: 0 6px 10px rgba(207, 212, 222, 1);
+  border-radius: 10px;
+  text-align: center;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  height: 400px;
+} */
+
+/* .form{
+  display: flex;
+  justify-content: center; 
+}
+form{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  background-color: rgba(255, 255, 255, 0.36);
+  padding: 10px;
+  width: 25%;
+  border-radius:10px; 
+}
+
+h1{
+  white-space:wrap;
+} */
+/* img{
+  width: 50%;
+  border-radius: 50%;
+} */
+/* input{
+  margin: 50px;
+  height: 40px;
+  width: 300px;
+  background-color: white;
+  outline: 1px solid green;
+  border: none;
+  border-radius: 20px;
+  padding: 1px;
+  color: black;
+} */
+ dialog{
+  width: 70%;
+  height: 90vh;
+  padding: 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: rgb(67, 62, 71);
+  position: fixed;
+  display: flex;
+  bottom:5px;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  bottom: 25px;
+}
+
