@@ -27,7 +27,7 @@ const data=Joi.object({
 app.use(express.json())
 app.use(cookie_parser())
 app.use(cores({
-    origin: 'http://localhost:5173',
+    origin: '',
     credentials: true 
   }))
 app.get("/data",async(req,res)=>{
