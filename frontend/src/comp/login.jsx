@@ -17,7 +17,7 @@ function Login() {
         console.log(data)
         console.log((Object.keys(data)))
         if (Object.keys(data).length==2){
-        axios.post("http://localhost:5000/login",data,{withCredentials: true }).then(
+        axios.post("http://localhost:5000/login",data).then(
             (res)=>{
                 const response=res
                 console.log(response)
