@@ -3,7 +3,7 @@ const cookie_parser=require("cookie-parser")
 const app=express()
 const path=require("path")
 const jwt=require("jsonwebtoken")
-const model=require("../models/model")
+const model=require(".models/model")
 const user=require("../models/userschema")
 const cores=require("cors")
 const Joi = require("joi")
@@ -27,8 +27,8 @@ const data=Joi.object({
 app.use(express.json())
 app.use(cookie_parser())
 app.use(cores({
-    origin: "*",
-    credentials: true,
+    origin: '',
+    credentials: true 
   }))
 app.get("/data",async(req,res)=>{
     const data=await model.find({})
@@ -110,16 +110,17 @@ app.post("/login",async (req,res)=>{
         else{
             res.json({message:"password is wrong"})
         }
+        
        }
         else{
             res.json({message:uservalid.validate(req.body).error.message})
         }
+       
     }
     else{
         res.json({message:"user not in database please sign"})
     }
         
 })
-
   
 module.exports=app
