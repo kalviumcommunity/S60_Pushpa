@@ -14,7 +14,7 @@ function Update() {
     }
     function submit() {
         console.log(data)
-        axios.put(`http://localhost:5000/data/${id}`,data).then(
+        axios.put(`https://s60-pushpa.onrender.com/data${id}`,data).then(
             ()=>{
                 nav("/")
             }

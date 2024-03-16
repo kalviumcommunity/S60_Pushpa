@@ -12,7 +12,7 @@ function Add(){
     function submit() {
         console.log(data)
         if (Object.keys(data).length==5){
-        axios.post("http://localhost:5000/data",data).then(
+        axios.post("https://s60-pushpa.onrender.com/data",data).then(
             (res)=>{
                 console.log(res)
             }

@@ -15,7 +15,7 @@ function Sigin() {
         console.log(data)
         console.log((Object.keys(data)))
         if (Object.keys(data).length==3){
-        axios.post("http://localhost:5000/sign",data).then(
+        axios.post("https://s60-pushpa.onrender.com/sign",data).then(
             (res)=>{
                 const response=res
                 console.log(response)
@@ -34,7 +34,6 @@ function Sigin() {
                         break 
                     case "Pushpa data saved successfully!":
                         nav("/")
-
                 }
             }
         ).catch((e)=>{console.log(e)})

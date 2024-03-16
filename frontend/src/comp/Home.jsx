@@ -15,11 +15,11 @@ function Home(){
     const ref=useRef()
     const blur=useRef()
     useState(()=>{
-        axios.get("http://localhost:5000/data").then((res)=>{
+        axios.get("https://s60-pushpa.onrender.com/data").then((res)=>{
             setdata(res.data)
-        })
         setload(false)
-    },[ref])
+        })
+    },[])
     // function go(id,data){
     //         console.log("bkdjbewjk")
     //         ref.current.style.display="no"
@@ -36,7 +36,7 @@ function Home(){
         setprofile("");
     }
     function del(id) {
-        axios.delete(`http://localhost:5000/data/${id}`).then(
+        axios.delete(`https://s60-pushpa.onrender.com/data/${id}`).then(
             (res)=>{
                 console.log(res)
                 location.reload()
@@ -46,7 +46,6 @@ function Home(){
     return(
         <div className=" w-full  bg-black text-white" ref={blur}>
         <Nav/>
-        <br></br>
         <div className=" w-full bg-gray-600 size-96 relative pl-20 pr-20 pt-2 pb-2">
             <div onClick={()=>{setindex(index==0 ? im.length-1 : index-1)}} className=" absolute">⬅️</div>
             <img className=" w-full h-full rounded-md" src={im[index]}/>
@@ -56,7 +55,6 @@ function Home(){
         <p className=" text-2xl text-center font-thin">And Here is the people will save you</p>
         <div className=" flex justify-center flex-wrap">
             <div className=" w-52 bg-gray-500 p-2 text-center rounded-2xl m-11  ">
-                <img src={"jat"} className=" h-20 w-20 rounded-full relative left-1/4"/>
                 <p className=" text-2xl left-1/2">Jatin</p>
                 <p className=" font-semibold text-sm">Kalvian</p>
                 <p className=" line-clamp-6">He is the guy who saved so many people from aliens where they came from other galaxys if you see his 

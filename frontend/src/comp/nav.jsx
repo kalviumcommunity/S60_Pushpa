@@ -11,7 +11,7 @@ function Nav() {
             <div><Link to="/">Home</Link></div>
             <div><Link to="/">About</Link></div>
             <div><Link to="/add">Add</Link></div>
-            <div className={getCookie("user") ? " hidden" : "absolute right-16 w-24 flex"}>
+            <div className={getCookie("email") ? " hidden" : "absolute right-16 w-24 flex"}>
                 <div>
                 <Link to={"/sigin"}><button className=" border-white border-2 p-1 m-1">Sign</button></Link>
                 </div>
@@ -19,7 +19,7 @@ function Nav() {
                 <Link to={"/login"}><button className="p-1 bg-gray-500 m-1">Login</button></Link>
                 </div>
             </div>
-            <div className={!getCookie() && "hidden"}>
+            <div className={!getCookie("token") && "hidden"}>
                 <button>Logout</button>
             </div>
         </div>
