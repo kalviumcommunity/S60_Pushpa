@@ -14,3 +14,5 @@
  <li>Type of People: The user can choose to see a particular category. </li>
 <li></li>
 </ul>
+<h1>Server link:</h1><a href="https://s60-pushpa.onrender.com/data">Server👨‍💻</a>
+<h1>Clinet link:</h1><a href="https://loquacious-sorbet-e51b7a.netlify.app/">pushpa🔥</a>
