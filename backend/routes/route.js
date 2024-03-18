@@ -46,7 +46,7 @@ try{
             Description:Descripsion,
             Catogary:Catogary
         });
-        if(!data.validate(newdata)){
+        if(!data.validate(newdata).err){
             await newdata.save();
             res.status(201).send({ message: "Pushpa data saved successfully!" });
         }
