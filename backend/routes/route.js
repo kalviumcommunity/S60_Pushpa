@@ -75,10 +75,12 @@ app.post("/sign",async (req,res)=>{
     res.json({message:"the custmore is already in db"})
   }
   else{
+const token=jwt.sign(req.body,"secret")
   const userdata = new user({
    name:req.body.name,
    email:req.body.email,
-   password:req.body.password
+   password:req.body.password,
+   token:token
 });
 if (!signvalid.validate(req.body).error){
     await userdata.save();
@@ -99,15 +101,13 @@ app.post("/login",async (req,res)=>{
         if(check){
             if(!loginvalid.validate(req.body).error){
             if (req.body.password==check.password){
-                const token=jwt.sign(req.body,"secret")
-                res.cookie("username",req.body.name)
+                res.cookie("username",req.body.email)
                 res.cookie("token",token)
                 res.json({message:"ok login"})
         }
         else{
             res.json({message:"password is wrong"})
         }
-        
        }
         else{
             res.json({message:uservalid.validate(req.body).error.message})
@@ -118,6 +118,15 @@ app.post("/login",async (req,res)=>{
         res.json({message:"user not in database please sign"})
     }
         
+})
+app.get("/cookie/:id",async (req,res)=>{
+    try{
+        const check=await user.findOne({email:req.params.id})
+        res.json(check)
+    }
+    catch{
+        
+    }
 })
   
 module.exports=app
