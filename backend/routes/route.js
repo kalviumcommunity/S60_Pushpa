@@ -36,6 +36,7 @@ app.get("/",(req,res)=>{
 })
 app.post("/data", async (req, res) => {
 try{
+    
     const {name,age,toxicscale,Place,Descripsion,Catogary,image} = req.body
         const newdata = new model({
             image:image,
@@ -46,7 +47,7 @@ try{
             Description:Descripsion,
             Catogary:Catogary
         });
-        if(!data.validate(newdata).err){
+        if(!data.validate(newdata).error){
             await newdata.save();
             res.status(201).send({ message: "Pushpa data saved successfully!" });
         }
