@@ -47,11 +47,13 @@ try{
             Description:Descripsion,
             Catogary:Catogary
         });
+        try{
             await newdata.save();
-            res.status(201).send({ message: "Pushpa data saved successfully!" });
-        
-            res.json({message:"Data not valid"})
-        
+            res.status(201).send({ message: "Pushpa data saved successfully!" });        
+        }
+        catch{
+            res.status(400).send({message:"jkbe"})
+        }
         }
     catch{
         console.log("error")
