@@ -106,11 +106,11 @@ app.post("/login",async (req,res)=>{
                 res.json({message:"ok login"})
         }
         else{
-            res.json({message:"password is wrong"})
+            res.status(200).json({message:"password is wrong"})
         }
        }
         else{
-            res.json({message:uservalid.validate(req.body).error.message})
+            res.status(404).json({message:uservalid.validate(req.body).error.message})
         }
        
     }
@@ -125,7 +125,7 @@ app.get("/cookie/:id",async (req,res)=>{
         res.json(check)
     }
     catch{
-        
+
     }
 })
   
