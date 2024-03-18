@@ -95,14 +95,12 @@ catch{
 }
 })
 app.post("/login",async (req,res)=>{
-   
         const check=await user.findOne({email:req.body.email})
         console.log(check)
         if(check){
             if(!loginvalid.validate(req.body).error){
             if (req.body.password==check.password){
                 res.cookie("username",req.body.email)
-                res.cookie("token",token)
                 res.json({message:"ok login"})
         }
         else{
