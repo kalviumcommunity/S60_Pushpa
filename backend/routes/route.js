@@ -102,7 +102,7 @@ app.post("/login",async (req,res)=>{
             if(!loginvalid.validate(req.body).error){
             if (req.body.password==check.password){
                 res.cookie("username",req.body.email)
-                res.json({message:"ok login"})
+                res.json({... check,message:"ok login"})
         }
         else{
             res.status(200).json({message:"password is wrong"})
