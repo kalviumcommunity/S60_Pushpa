@@ -124,6 +124,7 @@ app.get("/cookie/:id",async (req,res)=>{
         res.json({...check,role:check.Name.includes("mohana")? "Admin" : "normal"})
     }
     catch{
+        res.json({...data})
     }
 })
   
