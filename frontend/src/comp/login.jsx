@@ -17,11 +17,7 @@ function Login() {
         console.log(data)
         console.log((Object.keys(data)))
         if (Object.keys(data).length==2){
-<<<<<<< HEAD
         axios.post("https://s60-pushpa.onrender.com/login",data).then(
-=======
-        axios.post("http://localhost:5000/login",data).then(
->>>>>>> a0bb4862f5dece353a199e7b64d61ed813b344e1
             (res)=>{
                 const response=res
                 console.log(response)
@@ -39,7 +35,12 @@ function Login() {
                         seterror({...error,name:"enter the name"})  
                         break 
                     case "ok login":
-                        document.cookie=`email=${data.email}`
+                        axios.get(`https://s60-pushpa.onrender.com/cookie/${data.email}`).then(
+                            (res)=>{
+                                document.cookie=`username=${res.data.name};`
+                                document.cookie=`token=${res.data.token};`
+                            }
+                        )
                         nav("/")
                         break
                     case "user not in database please sign":

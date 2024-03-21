@@ -37,7 +37,7 @@ app.get("/",(req,res)=>{
 app.post("/data", async (req, res) => {
 try{
     
-    const {name,age,toxicscale,Place,Descripsion,Catogary,image} = req.body
+    const {name,age,toxicscale,Place,Descripsion,Created,image} = req.body
         const newdata = new model({
             image:image,
             Name:name,
@@ -45,7 +45,7 @@ try{
             ToxicRate:toxicscale,
             Place:Place,
             Description:Descripsion,
-            Catogary:Catogary
+            Created:Created
         });
         try{
             await newdata.save();
@@ -121,10 +121,9 @@ app.post("/login",async (req,res)=>{
 app.get("/cookie/:id",async (req,res)=>{
     try{
         const check=await user.findOne({email:req.params.id})
-        res.json(check)
+        res.json({...check,role:check.Name.includes("mohana")? "Admin" : "normal"})
     }
     catch{
-
     }
 })
   

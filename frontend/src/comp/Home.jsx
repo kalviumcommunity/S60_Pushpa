@@ -2,9 +2,12 @@ import axios from "axios";
 import aliens from "../assets/alien.jpeg"
 import flate from "../assets/flate.avif"
 import insta from "../assets/insta.webp"
+import pushpa from "../assets/pushpa.avif"
 import { useRef, useState } from "react";
 import bala from "../assets/bala.jpg"
 import Nav from "./nav";
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos'
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { Link } from "react-router-dom";
 function Home(){
     const im=[aliens,flate,insta]
@@ -47,15 +50,16 @@ function Home(){
         <div className=" w-full  bg-black text-white" ref={blur}>
         <Nav/>
         <div className=" w-full bg-gray-600 size-96 relative pl-20 pr-20 pt-2 pb-2">
-            <div onClick={()=>{setindex(index==0 ? im.length-1 : index-1)}} className=" absolute">⬅️</div>
+        <ArrowForwardIosIcon onClick={()=>{setindex(index==im.length-1 ? 0 : index+1)}} className=" absolute right-4 top-48"/>
             <img className=" w-full h-full rounded-md" src={im[index]}/>
-           <div onClick={()=>{setindex(index==im.length-1 ? 0 : index+1)}} className=" absolute">➡️</div>
+        <ArrowBackIosIcon onClick={()=>{setindex(index==0 ? im.length-1 : index-1)}} className=" absolute left-4 top-48"/>
         </div>
-        <p className=" text-3xl text-center  hover:text-purple-500">This platform will save you from the aliens,flatearther and instagram aliens </p>
+        <p className=" text-3xl text-center  hover:text-purple-500 mt-8">This platform will save you from the aliens,flatearther and instagram aliens </p>
         <p className=" text-2xl text-center font-thin">And Here is the people will save you</p>
         <div className=" flex justify-center flex-wrap">
             <div className=" w-52 bg-gray-500 p-2 text-center rounded-2xl m-11  ">
-                <p className=" text-2xl left-1/2">Jatin</p>
+            <img src={pushpa} className=" h-20 w-20 rounded-full relative left-1/4"/>
+                <p className=" text-2xl left-1/2">Pushapa</p>
                 <p className=" font-semibold text-sm">Kalvian</p>
                 <p className=" line-clamp-6">He is the guy who saved so many people from aliens where they came from other galaxys if you see his 
                 whatsapp all aliens groups will there somethime nasea people will come and ask his advises
