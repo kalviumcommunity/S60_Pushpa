@@ -35,12 +35,8 @@ function Login() {
                         seterror({...error,name:"enter the name"})  
                         break 
                     case "ok login":
-                        axios.get(`https://s60-pushpa.onrender.com/cookie/${data.email}`).then(
-                            (res)=>{
-                                document.cookie=`username=${res.data.name};`
-                                document.cookie=`token=${res.data.token};`
-                            }
-                        )
+                                document.cookie=`username=${response.data.name};`
+                                document.cookie=`token=${response.data.,token};`
                         nav("/")
                         break
                     case "user not in database please sign":
