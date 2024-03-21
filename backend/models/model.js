@@ -5,7 +5,7 @@ const schema=mongoose.Schema({
     Age:String,
     Place:String,
     Description:String,
-    Catogary:String
+    Created:String
 })
 
 const model=mongoose.model("pushpa",schema)
