@@ -36,7 +36,7 @@ function Login() {
                         break 
                     case "ok login":
                                 document.cookie=`username=${response.data.name};`
-                                document.cookie=`token=${response.data.,token};`
+                                document.cookie=`token=${response.data.token};`
                         nav("/")
                         break
                     case "user not in database please sign":

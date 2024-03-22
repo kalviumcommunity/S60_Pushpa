@@ -102,7 +102,7 @@ app.post("/login",async (req,res)=>{
             if(!loginvalid.validate(req.body).error){
             if (req.body.password==check.password){
                 res.cookie("username",req.body.email)
-                res.json({... check,message:"ok login"})
+                res.json({...check,message:"ok login"})
         }
         else{
             res.status(200).json({message:"password is wrong"})
@@ -117,14 +117,6 @@ app.post("/login",async (req,res)=>{
         res.json({message:"user not in database please sign"})
     }
         
-})
-app.get("/cookie/:id",async (req,res)=>{
-    try{
-        const check=await user.findOne({email:req.params.id})
-        res.json({...check,role:check.Name.includes("mohana")? "Admin" : "normal"})
-    }
-    catch{
-    }
 })
   
 module.exports=app
