@@ -42,7 +42,7 @@ function Home(){
         axios.delete(`https://s60-pushpa.onrender.com/data/${id}`).then(
             (res)=>{
                 console.log(res)
-                location.reload()
+                // location.reload()
             }
         )
     }

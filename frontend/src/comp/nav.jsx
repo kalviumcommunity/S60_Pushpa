@@ -18,8 +18,11 @@ function Nav() {
             {/* <img/> */}
             <div><Link to="/">Home</Link></div>
             <div><Link to="/">About</Link></div>
+            <div><Link to={"/filter"}>Filter</Link></div>
+
             <div className={!getCookie("username")&&" hidden"}><Link to="/add">Add</Link></div>
             <div className={getCookie("token") ? " hidden" : "absolute right-16 w-24 flex"}>
+
                 <div>
                 <Link to={"/sigin"}><button className=" border-white border-2 p-1 m-1">Sign</button></Link>
                 </div>

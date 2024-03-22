@@ -5,6 +5,7 @@ import Login from "./comp/login"
 import Home from './comp/Home'
 import Update from './update'
 import Sigin from './comp/sign'
+import Filter from './comp/filter'
 function App() {
   return (
     <>
@@ -14,6 +15,7 @@ function App() {
       <Route path="/login" element={<Login/>}/>
       <Route path='/add' element={<Add/>}/>
       <Route path='/update/:id' element={<Update/>}/>
+      <Route path='/filter' element={<Filter/>}/>
     </Routes>
      {/* <Add/> */}
     </>

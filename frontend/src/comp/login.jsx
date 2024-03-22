@@ -35,8 +35,9 @@ function Login() {
                         seterror({...error,name:"enter the name"})  
                         break 
                     case "ok login":
-                                document.cookie=`username=${response.data.name};`
-                                document.cookie=`token=${response.data.token};`
+                        console.log(res.data)
+                                document.cookie=`username=${response.data._doc.name};`
+                                document.cookie=`token=${response.data._doc.token};`
                         nav("/")
                         break
                     case "user not in database please sign":
