@@ -37,14 +37,14 @@ app.get("/",(req,res)=>{
 app.post("/data", async (req, res) => {
 try{
     
-    const {name,age,toxicscale,Place,Descripsion,Created,image} = req.body
+    const {name,age,toxicscale,Place,Description,Created,image} = req.body
         const newdata = new model({
             image:image,
             Name:name,
             Age:age,
             ToxicRate:toxicscale,
             Place:Place,
-            Description:Descripsion,
+            Description:Description,
             Created:Created
         });
         try{

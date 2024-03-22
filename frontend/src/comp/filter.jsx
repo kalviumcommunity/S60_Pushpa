@@ -27,7 +27,7 @@ function Filter() {
 	return (
 		<div className=' w-screen h-screen bg-black '>
 			<select value={selected} onChange={change} className=' bg-white w-72 h-10 rounded-3xl border-none relative left-16 m-5'>
-				<option value="" className=' '>Choose the continent</option>
+				<option value="" className=' '>Choose </option>
 				{response.map((user) => {
 					if (!countinent.includes(user.Created)) {
 						countinent.push(user.Created)
