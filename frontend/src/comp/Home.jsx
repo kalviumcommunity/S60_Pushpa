@@ -98,7 +98,7 @@ function Home(){
      </div>
      </div>
             )): (<h1 className=" text-white">loading...</h1>)}
-            {/* {Profile && (
+            {Profile && (
         <div className=" h-dvh w-screen fixed top-0 backdrop-blur-lg">
          <dialog className="shadow-xl shadow-white p-4 " ref={ref}>
            <button onClick={closeDialog} className="absolute top-0 right-0 p-2 text-white">
@@ -115,16 +115,16 @@ function Home(){
                <div>
              <Link to={`/update/${Profile._id}`}><button className=" bg-green-500 text-white p-2 rounded-xl">Update</button></Link>
              <button onClick={()=>{del(Profile._id)}} className=" bg-red-500 text-white p-2 rounded-xl ml-4">Delete</button>
-</div> */}
+</div>
 
-             {/* </div> */}
-           {/* </div>
+             </div>
+           </div>
            <div className=" absolute bottom-10 left-6 ">
              <p className="text-xl text-white">{Profile.Description}</p>
            </div>
-         </dialog> */}
-         {/* </div> */}
-       {/* )} */}
+         </dialog>
+         </div>
+       )}
         </div>
         </div>
     )
