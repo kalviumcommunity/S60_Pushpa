@@ -43,7 +43,7 @@ function Sigin() {
         }
     }
     return(
-        <div className="h-screen bg-black flex justify-center items-center">
+        <div className="h-screen bg-black flex justify-center items-center flex-col">
      {error.login && (<div className=" w-70 bg-red-400 text-white rounded-xl p-4">{error.login}</div>)}
 
         <div className="w-80 rounded-2xl bg-slate-900">
