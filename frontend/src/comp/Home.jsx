@@ -5,7 +5,7 @@ import insta from "../assets/insta.webp"
 import pushpa from "../assets/pushpa.avif"
 import { useRef, useState } from "react";
 import bala from "../assets/bala.jpg"
-import Nav from "./nav";
+import Nav, { getCookie } from "./nav";
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos'
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { Link } from "react-router-dom";
@@ -112,11 +112,10 @@ function Home(){
                <p className="text-4xl text-white">Name: {Profile.Name}</p>
                <p className="text-4xl text-white">Age: {Profile.Age || "♾️"}</p>
                <p className="text-4xl text-white">Place: {Profile.Place || "Unknown"}</p>
-               <div>
+               <div className={!getCookie("username")&& "hidden"}>
              <Link to={`/update/${Profile._id}`}><button className=" bg-green-500 text-white p-2 rounded-xl">Update</button></Link>
              <button onClick={()=>{del(Profile._id)}} className=" bg-red-500 text-white p-2 rounded-xl ml-4">Delete</button>
 </div>
-
              </div>
            </div>
            <div className=" absolute bottom-10 left-6 ">

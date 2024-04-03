@@ -15,7 +15,8 @@ function Update() {
     function submit() {
         console.log(data)
         axios.put(`https://s60-pushpa.onrender.com/data/${id}`,data).then(
-            ()=>{
+            (res)=>{
+                console.log(res)
                 nav("/")
             }
         ).catch((e)=>{console.log(e)})
@@ -28,7 +29,7 @@ function Update() {
      <div className="flex flex-col gap-2 p-8">   
      <p className="text-center text-3xl text-gray-300 mb-4">Update the data</p> 
        <input className="bg-slate-900 text-white w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-offset-2 focus:ring-offset-gray-800" 
-       name="name"
+       name="Name"
        onChange={(e)=>{va(e)}} value={data.name}
        placeholder="Name"/>
        

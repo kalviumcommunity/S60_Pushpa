@@ -3,7 +3,7 @@ import './App.css'
 import Add from './comp/DataAdd'
 import Login from "./comp/login"
 import Home from './comp/Home'
-import Update from './update'
+import Update from './comp/update'
 import Sigin from './comp/sign'
 import Filter from './comp/filter'
 function App() {
