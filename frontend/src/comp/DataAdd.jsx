@@ -4,16 +4,16 @@ import { useState } from "react";
 import { getCookie } from "./nav";
 
 function Add(){
-    const [data,setvalue]=useState({})
+    const [Data,setvalue]=useState({})
     const nav=useNavigate()
     function va(e) {
         const {name,value}=e.target
-        const ne={...data}
+        const ne={...Data}
         ne[name]=value
         setvalue(ne)
     }
     function submit() {
-        axios.post("https://s60-pushpa.onrender.com/data",{...data,Created:getCookie("username")}).then(
+        axios.post("https://s60-pushpa.onrender.com/data",{...Data,Created:getCookie("username")}).then(
             (res)=>{
                 console.log(res)
                 nav("/")
@@ -25,15 +25,15 @@ function Add(){
         <div className="h-screen bg-black flex justify-center items-center">
      <div className="w-96 rounded-2xl bg-slate-900">
   <div className="flex flex-col gap-2 p-8">
-  <p className="text-center text-3xl text-gray-300 mb-4">Add the data</p> 
+  <p className="text-center text-3xl text-gray-300 mb-4">Add the Data</p> 
     <input className="bg-slate-900 text-white w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-offset-2 focus:ring-offset-gray-800" 
     name="name"
-    onChange={(e)=>{va(e)}} value={data.name}
+    onChange={(e)=>{va(e)}} value={Data.name}
     placeholder="Name"/>
     
     <input className="bg-slate-900 w-full text-white rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-offset-2 focus:ring-offset-gray-800" 
     name="age"
-    onChange={(e)=>{va(e)}} value={data.age}
+    onChange={(e)=>{va(e)}} value={Data.age}
     placeholder="Age"/>
     
 
