@@ -54,13 +54,13 @@ app.post("/data", async (req, res) => {
                 await newdata.save();
                 res.status(201).send({ message: "Pushpa data saved successfully!" });  }
                 else{
-                    res.status(404).send(data.validate({
+                    res.status(200).send(data.validate({
                         image:image,
                         Name:name,
                         Age:age,
                         Place:Place,
                         Description:Description
-                        }).error)
+                        }).error.message)
                 }      
         // }
      
