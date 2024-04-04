@@ -87,14 +87,14 @@ app.post("/sign",async (req,res)=>{
   }
   else{
 const token=jwt.sign(req.body,"secret")
-  const userdata = new user({
+  const Userdata = new user({
    name:req.body.name,
    email:req.body.email,
    password:req.body.password,
    token:token
 });
 if (!signvalid.validate(req.body).error){
-    await userdata.save();
+    await Userdata.save();
     res.status(201).send({ message: "Pushpa data saved successfully!" });
     }
 
