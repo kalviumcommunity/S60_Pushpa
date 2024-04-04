@@ -114,7 +114,7 @@ function Home(){
                <p className="text-4xl text-white">Place: {Profile.Place || "Unknown"}</p>
                <div className={!getCookie("username")&& "hidden"}>
              <Link to={`/update/${Profile._id}`}><button className=" bg-green-500 text-white p-2 rounded-xl">Update</button></Link>
-             <button onClick={()=>{del(Profile._id)}} className=" bg-red-500 text-white p-2 rounded-xl ml-4">Delete</button>
+             <button onClick={()=>{del(Profile._id)}} className=" bg-red-400 text-white p-2 rounded-xl ml-4">Delete</button>
 </div>
              </div>
            </div>
