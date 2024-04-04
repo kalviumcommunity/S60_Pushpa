@@ -31,9 +31,7 @@ app.get("/data",async(req,res)=>{
     const data=await model.find({})
     res.send(data)
 })
-app.get("/",(req,res)=>{
-    res.sendFile(__dirname+"/frontend/index.html")
-})
+
 app.post("/data", async (req, res) => {
 // try{
     
