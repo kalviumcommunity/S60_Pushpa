@@ -31,9 +31,7 @@ app.get("/data",async(req,res)=>{
     const data=await model.find({})
     res.send(data)
 })
-app.get("/",(req,res)=>{
-    res.sendFile(__dirname+"/frontend/index.html")
-})
+
 app.post("/data", async (req, res) => {
 // try{
     
@@ -56,13 +54,13 @@ app.post("/data", async (req, res) => {
                 await newdata.save();
                 res.status(201).send({ message: "Pushpa data saved successfully!" });  }
                 else{
-                    res.status(404).send(data.validate({
+                    res.status(200).send(data.validate({
                         image:image,
                         Name:name,
                         Age:age,
                         Place:Place,
                         Description:Description
-                        }).error)
+                        }).error.message)
                 }      
         // }
      
@@ -89,14 +87,14 @@ app.post("/sign",async (req,res)=>{
   }
   else{
 const token=jwt.sign(req.body,"secret")
-  const userdata = new user({
+  const Userdata = new user({
    name:req.body.name,
    email:req.body.email,
    password:req.body.password,
    token:token
 });
 if (!signvalid.validate(req.body).error){
-    await userdata.save();
+    await Userdata.save();
     res.status(201).send({ message: "Pushpa data saved successfully!" });
     }
 
