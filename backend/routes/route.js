@@ -20,9 +20,9 @@ const data=Joi.object({
     Name:Joi.string().required(),
     Age:Joi.number().integer().required(),
     Place:Joi.string().required(),
-    Descripsion:Joi.string().required(),
-    Precasion:Joi.string().required(),
-    ToxicRate:Joi.string().required()
+    Description:Joi.string().required(),
+    image:Joi.string().required()
+
 })
 app.use(express.json())
 app.use(cookie_parser())
@@ -35,30 +35,42 @@ app.get("/",(req,res)=>{
     res.sendFile(__dirname+"/frontend/index.html")
 })
 app.post("/data", async (req, res) => {
-try{
+// try{
     
-    const {name,age,toxicscale,Place,Description,Created,image} = req.body
-        const newdata = new model({
-            image:image,
-            Name:name,
-            Age:age,
-            ToxicRate:toxicscale,
-            Place:Place,
-            Description:Description,
-            Created:Created
-        });
-        try{
-            await newdata.save();
-            res.status(201).send({ message: "Pushpa data saved successfully!" });        
-        }
-        catch{
-            res.status(400).send({message:"jkbe"})
-        }
-        }
-    catch{
-        console.log("error")
-        res.status(500).json({message:"error"})
-    }
+    const {name,age,Place,Description,Created,image} = req.body
+            if(!data.validate({
+                image:image,
+                Name:name,
+                Age:age,
+                Place:Place,
+                Description:Description
+                }).error){
+                    const newdata = new model({
+                        image:image,
+                        Name:name,
+                        Age:age,
+                        Place:Place,
+                        Description:Description,
+                        Created:Created
+                    });
+                await newdata.save();
+                res.status(201).send({ message: "Pushpa data saved successfully!" });  }
+                else{
+                    res.status(404).send(data.validate({
+                        image:image,
+                        Name:name,
+                        Age:age,
+                        Place:Place,
+                        Description:Description
+                        }).error)
+                }      
+        // }
+     
+        
+    // catch{
+    //     console.log("error")
+    //     res.status(500).json({message:"error"})
+    // }
     });
 app.put("/data/:id",async (req,res)=>{
         await model.findOneAndUpdate({_id:req.params.id},req.body)
