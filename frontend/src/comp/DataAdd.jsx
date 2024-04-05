@@ -23,8 +23,11 @@ function Add(){
                     case  "\"Place\" is required":
                         alert("type the Place")
                         break
-                    case  "\"name\" is required":
+                    case  "\"Name\" is required":
                         alert("give the name")
+                        break
+                    case "\"Age\" is required":
+                        alert("gieve the age")
                         break
                     case  "\"Age\" must be a number":
                         alert("the age need to be a number")
@@ -35,7 +38,6 @@ function Add(){
                 console.log(res)
             }
         ).catch((e)=>{console.log(e)})
-        setvalue({})
     }
     return(
         <div className="h-screen bg-black flex justify-center items-center">
