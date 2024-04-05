@@ -15,7 +15,7 @@ function Add(){
     function submit() {
         axios.post("https://s60-pushpa.onrender.com/data",{...Data,Created:getCookie("username")}).then(
             (res)=>{
-                const response=res.data.message
+                const response=res.data
                 switch(response){
                     case "Pushpa data saved successfully!":
                         nav("/")
