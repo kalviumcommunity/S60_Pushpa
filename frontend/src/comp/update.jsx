@@ -34,25 +34,15 @@ function Update() {
        placeholder="Name"/>
        
        <input className="bg-slate-900 text-white w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-offset-2 focus:ring-offset-gray-800" 
-       name="age"
+       name="Age"
        onChange={(e)=>{va(e)}} value={data.age}
        placeholder="Age"/>
        
        <input className="bg-slate-900 text-white w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-offset-2 focus:ring-offset-gray-800" 
-       name="toxicscale"
-       onChange={(e)=>{va(e)}}
-       placeholder="toxicscale"/>
-   
-       <input className="bg-slate-900 text-white w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-offset-2 focus:ring-offset-gray-800" 
        name="Place"
        onChange={(e)=>{va(e)}}
        placeholder="Place"/>
-   
-       <input className="bg-slate-900 text-white w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-offset-2 focus:ring-offset-gray-800" 
-       name="Catogary"
-       onChange={(e)=>{va(e)}}
-       placeholder="Catogary"/>
-   
+
        <input className="bg-slate-900 text-white w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-offset-2 focus:ring-offset-gray-800" 
        name="image"
        onChange={(e)=>{va(e)}}

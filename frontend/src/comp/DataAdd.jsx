@@ -15,7 +15,7 @@ function Add(){
     function submit() {
         axios.post("https://s60-pushpa.onrender.com/data",{...Data,Created:getCookie("username")}).then(
             (res)=>{
-                const response=res.data.message
+                const response=res.data
                 switch(response){
                     case "Pushpa data saved successfully!":
                         nav("/")
@@ -23,7 +23,7 @@ function Add(){
                     case  "\"Place\" is required":
                         alert("type the Place")
                         break
-                    case  "\"name\" is required":
+                    case  "\"Name\" is required":
                         alert("give the name")
                         break
                     case  "\"Age\" must be a number":
