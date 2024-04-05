@@ -22,6 +22,7 @@ function Login() {
                 const response=Res
                 console.log(response)
                 switch (response.data.message){
+
                     case "\"email\" must be a valid email":
                         seterror({...error,email:"give the mail proprerly"})
                         break
@@ -36,8 +37,8 @@ function Login() {
                         break 
                     case "ok login":
                         console.log(res.data)
-                                document.cookie=`username=${response.data._doc.name};`
-                                document.cookie=`token=${response.data._doc.token};`
+                                document.cookie=`username=${Response.data._doc.name};`
+                                document.cookie=`token=${Response.data._doc.token};`
                         nav("/")
                         break
                     case "user not in database please sign":
