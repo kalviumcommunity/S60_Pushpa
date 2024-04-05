@@ -18,8 +18,8 @@ function Login() {
         console.log((Object.keys(data)))
         if (Object.keys(data).length==2){
         axios.post("https://s60-pushpa.onrender.com/login",data).then(
-            (res)=>{
-                const response=res
+            (Res)=>{
+                const response=Res
                 console.log(response)
                 switch (response.data.message){
                     case "\"email\" must be a valid email":
