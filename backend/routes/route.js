@@ -132,19 +132,26 @@ const transporter = nodemailer.createTransport({
       });
       var mailOptions = {
         from: "mohanavamsi16@outlook.com",
-        to: 'mohanavamsi14@gmail.com',
-        subject: 'Your otp'+otp,
-        html: '<h1>Hey welcome</h1> <p>Here is your otp </p>'+`<h2>${otp}</h2>`
+        to: req.body.email,
+        subject: 'Your otp '+otp,
+        html: '<h1>Hey welcome</h1> <p>Here is your otp </p>'+`<h2> '${otp}'</h2>`
       };
       await transporter.sendMail(mailOptions)
       console.log("sended")
       res.send(hashOTP(otp))
 })
-app.post("/otpvalid",(req,res)=>{
+app.post("/otpvalid",async (req,res)=>{
     const otp=req.body.userotp
     const hasedotp=req.body.otp
-    if (hashOTP(Number(otp))==hasedotp){
-        res.send("valid")
+    if (hashOTP((otp))==hasedotp){
+        const update=await user.findOneAndUpdate({email:req.body.email},{password:req.body.password})
+        console.log(update)
+        if (!update){
+            res.send("user not in database ")
+        }
+        else{
+        res.send("done")
+        }
     }
     else{
         res.send("notvalid")

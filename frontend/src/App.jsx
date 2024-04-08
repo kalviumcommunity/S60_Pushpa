@@ -6,6 +6,7 @@ import Home from './comp/Home'
 import Update from './comp/update'
 import Sigin from './comp/sign'
 import Filter from './comp/filter'
+import Forget from './comp/Forget'
 function App() {
   return (
     <>
@@ -16,6 +17,7 @@ function App() {
       <Route path='/add' element={<Add/>}/>
       <Route path='/update/:id' element={<Update/>}/>
       <Route path='/filter' element={<Filter/>}/>
+      <Route path='/forget' element={<Forget/>}/>
     </Routes>
      {/* <Add/> */}
     </>
