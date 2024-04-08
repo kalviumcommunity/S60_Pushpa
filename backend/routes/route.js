@@ -5,8 +5,11 @@ const path=require("path")
 const jwt=require("jsonwebtoken")
 const model=require("../models/model")
 const user=require("../models/userschema")
+const nodemailer=require("nodemailer")
 const cores=require("cors")
 const Joi = require("joi")
+const crypto=require("crypto")
+const otpGenerator = require('otp-generator')
 const signvalid=Joi.object({
     name:Joi.string().required(),
     email:Joi.string().email(),
@@ -24,6 +27,11 @@ const data=Joi.object({
     image:Joi.string().required()
 
 })
+function hashOTP(otp) {
+    const hash = crypto.createHash('sha256');
+    hash.update(otp);
+    return hash.digest("hex");
+}
 app.use(express.json())
 app.use(cookie_parser())
 app.use(cores())
@@ -104,6 +112,50 @@ else{
 catch{
     res.status(400).send("something wrong")
 }
+})
+app.post("/otp",async(req,res)=>{
+    // var transporter = nodemailer.createTransport({
+    //     service: 'gmail',
+    //     auth: {
+    //       user: 'mohanavamsi16@gmail.com',
+    //       pass: 'vamsi0614'
+    //     }
+    //   });
+const otp=otpGenerator.generate(6, { upperCaseAlphabets: false, specialChars: false,lowerCaseAlphabets:false });
+    
+const transporter = nodemailer.createTransport({
+        service: "outlook",
+        auth: {
+          user: "mohanavamsi16@outlook.com",
+          pass: "fmyeynjakqxqxtsm",
+        },
+      });
+      var mailOptions = {
+        from: "mohanavamsi16@outlook.com",
+        to: req.body.email,
+        subject: 'Your otp '+otp,
+        html: '<h1>Hey welcome</h1> <p>Here is your otp </p>'+`<h2> '${otp}'</h2>`
+      };
+      await transporter.sendMail(mailOptions)
+      console.log("sended")
+      res.send(hashOTP(otp))
+})
+app.post("/otpvalid",async (req,res)=>{
+    const otp=req.body.userotp
+    const hasedotp=req.body.otp
+    if (hashOTP((otp))==hasedotp){
+        const update=await user.findOneAndUpdate({email:req.body.email},{password:req.body.password})
+        console.log(update)
+        if (!update){
+            res.send("user not in database ")
+        }
+        else{
+        res.send("done")
+        }
+    }
+    else{
+        res.send("notvalid")
+    }
 })
 app.post("/login",async (req,res)=>{
         const check=await user.findOne({email:req.body.email})
