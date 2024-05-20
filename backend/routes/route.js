@@ -105,7 +105,6 @@ if (!signvalid.validate(req.body).error){
     await Userdata.save();
     res.status(201).send({ message: "Pushpa data saved successfully!" });
     }
-
 else{
     res.json({message:uservalid.validate(req.body).error.message})
 }}}
@@ -128,7 +127,7 @@ const transporter = nodemailer.createTransport({
         auth: {
           user: "mohanavamsi16@outlook.com",
           pass: "fmyeynjakqxqxtsm",
-        },
+        }
       });
       var mailOptions = {
         from: "mohanavamsi16@outlook.com",
