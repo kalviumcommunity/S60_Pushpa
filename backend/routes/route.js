@@ -132,6 +132,53 @@ app.post("/otpvalid",async (req,res)=>{
         res.send("notvalid")
     }
 })
-
+app.post("/sign",async (req,res)=>{
+    try{
+  const check=await user.findOne({email:req.body.email})
+  if(check){
+    res.json({message:"the custmore is already in db"})
+  }
+  else{
+const token=jwt.sign(req.body,"secret")
+  const Userdata = new user({
+   name:req.body.name,
+   email:req.body.email,
+   password:req.body.password,
+   token:token
+});
+if (!signvalid.validate(req.body).error){
+    await Userdata.save();
+    res.status(201).send({ message: "Pushpa data saved successfully!" });
+    }
+else{
+    res.json({message:uservalid.validate(req.body).error.message})
+}}}
+catch{
+    res.status(400).send("something wrong")
+}
+})
+app.post("/login",async (req,res)=>{
+        const check=await user.findOne({email:req.body.email})
+        console.log(check)
+        if(check){
+            if(!loginvalid.validate(req.body).error){
+            if (req.body.password==check.password){
+                res.cookie("username",req.body.email)
+                res.json({...check,message:"ok login"})
+        }
+        else{
+            res.status(200).json({message:"password is wrong"})
+        }
+       }
+        else{
+            res.status(404).json({message:uservalid.validate(req.body).error.message})
+        }
+       
+    }
+    else{
+        res.json({message:"user not in database please sign"})
+    }
+        
+})
   
 module.exports=app
