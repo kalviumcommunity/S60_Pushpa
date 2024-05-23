@@ -139,10 +139,12 @@ app.post("/sign",async (req,res)=>{
     res.json({message:"the custmore is already in db"})
   }
   else{
+const token=jwt.sign(req.body,"secret")
   const Userdata = new user({
    name:req.body.name,
    email:req.body.email,
    password:req.body.password,
+   token:token
 });
 if (!signvalid.validate(req.body).error){
     await Userdata.save();
